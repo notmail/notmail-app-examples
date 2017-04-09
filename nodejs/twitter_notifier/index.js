@@ -10,7 +10,7 @@ var msg = { dest: {user: notmail_options.user}, msg: {} }
 
 /* Main */
 var T = new Twit(twit_options)
-var stream = T.stream('statuses/filter', { track: '#edsheeran' })
+var stream = T.stream('statuses/filter', { track: '#notMAIL' })
 stream.on('tweet', function (tweet) {
     let newTweet = `New #notMAIL Tweet!!
     * Autor del Tweet: ${tweet.user.name} (@${tweet.user.screen_name})
