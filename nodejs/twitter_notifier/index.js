@@ -6,7 +6,7 @@ var request         = require('request');
 
 /* Options */
 twit_options.timeout_ms = 60*1000;
-var msg = { dest: {user: notmail_options.user}, msg: {} }
+var msg = { dest: {user: ""}, msg: {} }
 
 /* Main */
 var T = new Twit(twit_options)
@@ -18,9 +18,12 @@ stream.on('tweet', function (tweet) {
     * URL: https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
     msg.msg.title = 'Nuevo tweet de @' + tweet.user.screen_name + "!"
     msg.msg.data = newTweet;
-    request.post({
-        url: notmail_options.url+'/app/msg/?unique_id='+notmail_options.unique_id+'&shared_key='+notmail_options.shared_key,
-        json: true,
-        body: msg
-    }, function(data){ })
+    for(user in notmail_options.users){
+        msg.msg.dest.user = user;
+        request.post({
+            url: notmail_options.url+'/app/msg/?unique_id='+notmail_options.unique_id+'&shared_key='+notmail_options.shared_key,
+            json: true,
+            body: msg
+        }, function(data){ })
+    }
 })

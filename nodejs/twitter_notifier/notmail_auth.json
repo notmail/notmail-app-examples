@@ -3,5 +3,5 @@
     "unique_id":   "",
     "shared_key":  "",
     "root_secret": "",
-     "user":       ""
+    "users":      []
 }
