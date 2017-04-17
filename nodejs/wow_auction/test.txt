@@ -1,0 +1,2 @@
+http://auction-api-eu.worldofwarcraft.com/auction-data/c572c0104614a2952a0453f504d2c97b/auctions.json
+null
