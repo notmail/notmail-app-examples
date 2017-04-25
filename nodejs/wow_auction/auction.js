@@ -26,7 +26,7 @@ blizzard.wow.auction({ origin: "eu", realm: "c'thun", locale: 'es_ES', jsonp: ''
        });
 
        if(result.length != 0){
-         console.log(result);
+         //console.log(result);
          msg.msg.title = 'Nuevo objeto';
          msg.msg.data = 'Existen ' + result.length + ' resultados en la subasta para el objeto con ID ' + id + ' por debajo de ' + minPrice + ' oros.';
          request.post({
