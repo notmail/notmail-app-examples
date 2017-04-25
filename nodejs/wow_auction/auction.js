@@ -10,10 +10,9 @@ var minPrice = 50000;
 var msg = { dest: {user: notmail_options.user}, msg: {} }
 
 
-/*setInterval(function(){
-}, 10000);*/
+setInterval(function(){
 
-blizzard.wow.auction({ origin: "eu", realm: "c'thun", locale: 'es_ES', jsonp: ''})
+	blizzard.wow.auction({ origin: "eu", realm: "c'thun", locale: 'es_ES', jsonp: ''})
   .then(response => {
 
     //console.log(response.data.files[0].url);
@@ -38,3 +37,6 @@ blizzard.wow.auction({ origin: "eu", realm: "c'thun", locale: 'es_ES', jsonp: ''
        }
     });
   });
+}, 1000*60*60*24);
+
+
