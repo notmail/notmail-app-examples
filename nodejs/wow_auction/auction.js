@@ -5,14 +5,18 @@ var fs = require('fs');
 var notmail_options = require('./notmail_auth.json');
 var url;
 var auction;
-var id = 22786;
+var id = 124105;
 var minPrice = 50000;
 var msg = { dest: {user: notmail_options.user}, msg: {} }
 
 
+queryBlizzard();
 setInterval(function(){
+	queryBlizzard();
+}, 1000*60*60*24);
 
-	blizzard.wow.auction({ origin: "eu", realm: "c'thun", locale: 'es_ES', jsonp: ''})
+function queryBlizzard(){
+		blizzard.wow.auction({ origin: "eu", realm: "c'thun", locale: 'es_ES', jsonp: ''})
   .then(response => {
 
     //console.log(response.data.files[0].url);
@@ -37,6 +41,5 @@ setInterval(function(){
        }
     });
   });
-}, 1000*60*60*24);
-
+}
 
